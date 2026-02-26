@@ -2,15 +2,19 @@ import streamlit as st
 import main_function
 
 todos = main_function.get_todos()
+#horizontal length of web page expands to the entire width of browser & responsive
+st.set_page_config(layout="wide")
 
 def add_todo():
     todo = st.session_state["new_todo"] + "\n"
     todos.append(todo)
     main_function.write_todos(todos)
 
+
 st.title("My Todo App")
 st.subheader("This is my todo app.")
-st.write("This app is to increase your productivity.")
+st.write("<h>This app is to increase your <b>productivity</b>.</h>.",
+         unsafe_allow_html=True)
 
 st.checkbox("Buy grocery")
 st.checkbox("Get gas")
